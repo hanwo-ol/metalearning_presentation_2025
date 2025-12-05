@@ -23,6 +23,8 @@ website:
             file: presentation_02_02_historical.qmd
           - text: "2.3 Related Fields"
             file: presentation_02_03_related_fields.qmd
+          - text: "3.1 Previous Taxonomies"
+            file: presentation_03_01_previous_taxonomies.qmd
       - section: "Resources"
         contents:
           - text: "Obsidian Style Guide"
