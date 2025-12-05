@@ -1,0 +1,100 @@
+---
+title: "Obsidian-Style Quarto Guide"
+date: last-modified
+categories: [Guide, Quarto, Obsidian]
+format:
+  html:
+    toc: true
+    theme: cosmo
+    mainfont: "Pretendard"
+---
+
+# Obsidian 스타일의 문서를 위한 가이드
+
+Quarto를 사용하여 Obsidian의 "Second Brain" 또는 "Digital Garden" 느낌을 내기 위해 신경 써야 할 요소들을 정리했습니다.
+
+## 1. Callouts (Admonitions) 활용
+
+Obsidian의 `> [!INFO]` 문법과 유사하게, Quarto는 `::: {.callout-*}` 문법을 제공합니다. 문서를 구조화하고 가독성을 높이는 데 필수적입니다.
+
+::: {.callout-note}
+## 요약 (Note)
+가장 기본적인 노트 박스입니다. 핵심 개념을 정리할 때 사용하세요.
+:::
+
+::: {.callout-tip}
+## 팁 (Tip)
+실용적인 조언이나 꿀팁을 적을 때 유용합니다.
+:::
+
+::: {.callout-warning}
+## 주의 (Warning)
+헷갈리기 쉬운 개념이나 주의할 점을 강조하세요.
+:::
+
+---
+
+## 2. 다이어그램 (Mermaid)
+
+Obsidian에서 플러그인으로 많이 사용하는 Mermaid가 Quarto에는 기본 내장되어 있습니다. 개념 간의 관계를 시각화할 때 적극 활용하세요.
+
+```{mermaid}
+flowchart LR
+  A[Conventional ML] -->|Fixes Algorithm| B(Deep Learning)
+  B -->|Learns Features| C{Meta-Learning}
+  C -->|Learns Algorithm| D[Generalization]
+
+  style C fill:#f9f,stroke:#333,stroke-width:4px
+```
+
+---
+
+## 3. 수식 (MathJax/LaTeX)
+
+논문 정리의 핵심입니다. Obsidian과 동일한 `$$` 문법을 사용합니다.
+
+*   **Inline:** $E = mc^2$ 처럼 문장 중에 수식 포함.
+*   **Block:**
+
+$$
+\theta^* = \arg\min_\theta \sum_{i=1}^N \mathcal{L}(y_i, f_\theta(x_i))
+$$
+
+---
+
+## 4. 내부 링크 (Wiki-style Linking)
+
+Obsidian의 강력함은 문서 간의 연결에서 나옵니다. Quarto에서도 다른 `.qmd` 파일을 링크하여 "지식 그래프"처럼 연결할 수 있습니다.
+
+*   [Introduction 섹션 요약 보기](./index.qmd)
+*   [Introduction 프레젠테이션 보기](./presentation.qmd)
+
+> **Tip:** 향후 Quarto 프로젝트(`_quarto.yml`)를 설정하면 사이드바 내비게이션을 통해 더욱 체계적인 연결이 가능합니다.
+
+---
+
+## 5. 레이아웃과 마진 노트 (Margin Notes)
+
+Obsidian의 넓은 화면을 활용하듯, Quarto에서는 본문 옆 여백(Margin)을 활용할 수 있습니다. 각주나 부가 설명에 매우 적합합니다.
+
+본문의 내용이 이어집니다. [^1]
+
+[^1]: 여기에 마진 노트가 들어갑니다. 화면 우측 여백에 표시되어 본문의 흐름을 방해하지 않고 추가 정보를 제공합니다.
+
+::: {.column-margin}
+**참고:**
+이 영역은 본문 옆에 별도로 위치하는 콘텐츠입니다. 이미지나 추가 설명을 넣기에 좋습니다.
+:::
+
+---
+
+## 6. 태그와 메타데이터 (Frontmatter)
+
+문서 최상단의 YAML 헤더를 꼼꼼히 관리하세요. Obsidian의 태그처럼 작동하여 나중에 주제별로 문서를 모아볼 수 있게 해줍니다.
+
+```yaml
+---
+title: "문서 제목"
+categories: [Deep Learning, Meta-Learning, Survey] # 태그 역할
+---
+```

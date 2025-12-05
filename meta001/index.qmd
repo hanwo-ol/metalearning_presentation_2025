@@ -1,0 +1,98 @@
+---
+title: "Meta-Learning in Neural Networks: A Survey"
+date: last-modified
+categories: [Meta-Learning, Deep Learning, Survey]
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    code-fold: true
+    theme: cosmo
+    css: styles.css
+---
+
+# Meta-Learning in Neural Networks -- A Survey
+
+## 1. 개요 (Overview)
+
+> **Paper Info**
+>
+> *   **Title:** Meta-Learning in Neural Networks: A Survey
+> *   **Authors:** Hospedales et al.
+> *   **Link:** [arXiv](https://arxiv.org/abs/2004.05439)
+
+### 📌 한 줄 요약 (One-line Summary)
+기존 딥러닝의 한계를 극복하기 위해, 여러 태스크의 경험을 통해 "학습하는 방법(How to learn)"을 학습하는 메타러닝의 최신 동향과 분류 체계를 정리한 서베이 논문입니다.
+
+### 🎯 문제 정의 (Problem Statement)
+*   **Conventional ML:** 고정된 알고리즘으로 매번 처음부터(From Scratch) 학습합니다. 이는 데이터와 계산 자원이 많이 필요하며(Data/Compute Hungry), 소수 데이터(Few-shot) 환경에 취약합니다.
+*   **Goal:** 메타러닝은 과거의 경험(Experience)을 활용하여 새로운 태스크를 더 효율적이고 빠르게 학습하는 것을 목표로 합니다.
+
+### 🔑 주요 기여 (Contributions)
+1.  **New Taxonomy:** Meta-Representation, Meta-Objective, Meta-Optimizer에 기반한 새로운 분류 체계 제시.
+2.  **Comprehensive Survey:** Few-shot, RL, NAS 등 다양한 응용 분야와 최신 방법론을 포괄적으로 정리.
+
+---
+
+## 2. 주요 개념 (Key Concepts)
+
+### The Meta-Learning Setup
+기존 학습(Conventional Learning) vs 메타 학습(Meta-Learning)의 차이점.
+
+$$ \theta^* = \arg\min_\theta \mathcal{L}(\mathcal{D}; \theta) $$
+
+*   **Task Distribution ($p(\mathcal{T})$):** 메타러닝은 단일 데이터셋이 아닌 태스크들의 분포에서 학습합니다.
+*   **Support Set vs Query Set:** 각 태스크는 학습용(Support)과 평가용(Query) 데이터로 나뉩니다.
+*   **Bilevel Optimization:**
+    *   Inner Loop: 특정 태스크에 적응(Adaptation).
+    *   Outer Loop: Inner Loop의 결과가 좋도록 메타 파라미터($\omega$)를 최적화.
+
+::: {.callout-note}
+## Note
+Meta-Learning은 "Learning to Learn"이라고도 불리며, 새로운 태스크에 대해 적은 데이터로 빠르게 적응하는 것을 목표로 합니다.
+:::
+
+---
+
+## 3. 방법론 분류 (Taxonomy of Methods)
+
+이 서베이 논문에서는 Meta-Learning 방법론을 어떻게 분류하고 있는가?
+
+### 1) Metric-Based
+*   Siamese Networks
+*   Matching Networks
+*   Prototypical Networks
+
+### 2) Model-Based
+*   MANN (Memory-Augmented Neural Networks)
+*   Meta Networks
+
+### 3) Optimization-Based
+*   MAML (Model-Agnostic Meta-Learning)
+*   Reptile
+
+---
+
+## 4. 실험 및 결과 (Experiments & Benchmarks)
+
+### Datasets
+*   Omniglot
+*   Mini-ImageNet
+
+### Results
+*주요 벤치마크에서의 성능 비교*
+
+---
+
+## 5. 결론 및 고찰 (Conclusion & Thoughts)
+
+### ✅ 장점 (Pros)
+*
+*
+
+### ⚠️ 한계점 (Cons)
+*
+*
+
+### 📝 개인적인 생각 (Personal Notes)
+*

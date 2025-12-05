@@ -1,0 +1,69 @@
+---
+title: "Meta-Learning in Neural Networks: A Survey"
+subtitle: "Section 3.1: Previous Taxonomies"
+author: "Hospedales et al."
+format:
+  revealjs:
+    theme: simple
+    slide-number: true
+    transition: fade
+    footer: "Meta-Learning Survey - Previous Taxonomies"
+---
+
+## 3.1 Previous Taxonomies
+
+**핵심 주제**
+기존 문헌에서 주로 사용되던 **3가지 분류 체계**와 그 한계점을 설명합니다.
+
+1.  Optimization-based
+2.  Model-based (Black Box)
+3.  Metric-based (Non-parametric)
+
+---
+
+## 1. Optimization-based Methods
+
+*   **개념:** Inner Task를 명시적인 **최적화 문제(Optimization Problem)**로 풉니다.
+*   **작동 방식:**
+    *   메타 지식 $\omega$는 초기화(Initialization)나 최적화 알고리즘(Optimizer) 자체를 의미.
+    *   예: **MAML [16]** ($\omega = \theta_0$), 학습률 학습.
+*   **특징:**
+    *   Gradient Descent를 통해 Base Model을 업데이트.
+    *   **장점:** 기존 최적화 기법 활용 가능.
+    *   **단점:** Inner Loop의 긴 최적화 과정(Hessian 계산 등)으로 인한 계산 비용.
+
+---
+
+## 2. Model-based (Black Box) Methods
+
+*   **개념:** Inner Learning 과정을 단일 모델(주로 RNN, Hypernetwork)의 **Feed-Forward Pass**로 대체.
+*   **작동 방식:**
+    *   데이터셋 $\mathcal{D}$를 입력받아 모델 파라미터 $\theta$나 예측값을 직접 출력.
+    *   $$ \theta = g_\omega(\mathcal{D}) $$ (Amortized Learning)
+    *   예: MANN, Meta Networks.
+*   **특징:**
+    *   Gradient Step 없이 매우 빠름.
+    *   **단점:** Optimization-based에 비해 Out-of-Distribution 일반화 성능이 떨어질 수 있음 [88].
+
+---
+
+## 3. Metric-based (Non-parametric) Methods
+
+*   **개념:** Inner Task에서 **Non-parametric** 방식(유사도 비교)을 사용.
+*   **작동 방식:**
+    *   데이터를 임베딩 공간으로 매핑하는 $\omega$를 학습.
+    *   Test 데이터와 Training(Support) 데이터 간의 유사도(Metric)를 비교하여 분류.
+    *   예: **Siamese [89], Matching [90], Prototypical Networks [20]**.
+*   **특징:**
+    *   Few-shot Classification에 특화됨.
+    *   간단하고 효율적임.
+
+---
+
+## Discussion: Limitations
+
+*   **기존 분류의 한계:**
+    *   메타러닝의 다양한 측면을 모두 설명하기에는 불충분함.
+    *   최신 방법론들(Hybrid approaches)을 명확히 구분하기 어려움.
+*   **New Taxonomy의 필요성:**
+    *   더 포괄적인 이해를 위해 **Meta-Representation**, **Meta-Objective**, **Meta-Optimizer**라는 세 가지 축을 제안함.
