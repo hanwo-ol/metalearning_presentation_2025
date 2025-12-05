@@ -8,6 +8,7 @@ format:
     toc-depth: 3
     code-fold: true
     theme: cosmo
+    css: styles.css
 ---
 
 # Meta-Learning in Neural Networks -- A Survey
@@ -21,10 +22,15 @@ format:
 > *   **Link:** [arXiv](https://arxiv.org/abs/2004.05439)
 
 ### 📌 한 줄 요약 (One-line Summary)
-*이 논문의 핵심 내용을 한 줄로 요약합니다.*
+기존 딥러닝의 한계를 극복하기 위해, 여러 태스크의 경험을 통해 "학습하는 방법(How to learn)"을 학습하는 메타러닝의 최신 동향과 분류 체계를 정리한 서베이 논문입니다.
 
 ### 🎯 문제 정의 (Problem Statement)
-*기존 딥러닝 방식(Deep Learning)과 다르게 Meta-Learning이 해결하고자 하는 문제는 무엇인가?*
+*   **Conventional ML:** 고정된 알고리즘으로 매번 처음부터(From Scratch) 학습합니다. 이는 데이터와 계산 자원이 많이 필요하며(Data/Compute Hungry), 소수 데이터(Few-shot) 환경에 취약합니다.
+*   **Goal:** 메타러닝은 과거의 경험(Experience)을 활용하여 새로운 태스크를 더 효율적이고 빠르게 학습하는 것을 목표로 합니다.
+
+### 🔑 주요 기여 (Contributions)
+1.  **New Taxonomy:** Meta-Representation, Meta-Objective, Meta-Optimizer에 기반한 새로운 분류 체계 제시.
+2.  **Comprehensive Survey:** Few-shot, RL, NAS 등 다양한 응용 분야와 최신 방법론을 포괄적으로 정리.
 
 ---
 
@@ -35,8 +41,11 @@ format:
 
 $$ \theta^* = \arg\min_\theta \mathcal{L}(\mathcal{D}; \theta) $$
 
-*   **Task Distribution ($p(\mathcal{T})$):**
-*   **Support Set vs Query Set:**
+*   **Task Distribution ($p(\mathcal{T})$):** 메타러닝은 단일 데이터셋이 아닌 태스크들의 분포에서 학습합니다.
+*   **Support Set vs Query Set:** 각 태스크는 학습용(Support)과 평가용(Query) 데이터로 나뉩니다.
+*   **Bilevel Optimization:**
+    *   Inner Loop: 특정 태스크에 적응(Adaptation).
+    *   Outer Loop: Inner Loop의 결과가 좋도록 메타 파라미터($\omega$)를 최적화.
 
 ::: {.callout-note}
 ## Note
