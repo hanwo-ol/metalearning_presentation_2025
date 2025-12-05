@@ -1,0 +1,19 @@
+/* Obsidian-like styling for Quarto */
+
+/* Callout Styling override if needed, though Quarto's default is good */
+.callout {
+    border-left-width: 5px;
+}
+
+/* Blockquote styling to resemble Obsidian's quotes */
+blockquote {
+    border-left: 4px solid #7e57c2;
+    background-color: #f9f9f9;
+    padding: 0.5em 10px;
+    margin: 1em 0;
+}
+
+/* Optional: Font adjustments for Korean text */
+body {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}

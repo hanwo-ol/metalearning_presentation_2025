@@ -1,0 +1,35 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Meta-Learning Survey Study"
+  sidebar:
+    style: "docked"
+    search: true
+    collapse-level: 1
+    contents:
+      - text: "Overview"
+        file: index.qmd
+      - section: "Slides (Presentations)"
+        contents:
+          - text: "1. Introduction"
+            file: presentation.qmd
+          - text: "2. Background"
+            file: presentation_02_background.qmd
+          - text: "2.1 Formalizing"
+            file: presentation_02_01_formalizing.qmd
+          - text: "2.2 History"
+            file: presentation_02_02_historical.qmd
+          - text: "2.3 Related Fields"
+            file: presentation_02_03_related_fields.qmd
+      - section: "Resources"
+        contents:
+          - text: "Obsidian Style Guide"
+            file: obsidian_style_guide.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true

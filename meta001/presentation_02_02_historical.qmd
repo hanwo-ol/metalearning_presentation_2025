@@ -1,0 +1,71 @@
+---
+title: "Meta-Learning in Neural Networks: A Survey"
+subtitle: "Section 2.2: Historical Context"
+author: "Hospedales et al."
+format:
+  revealjs:
+    theme: simple
+    slide-number: true
+    transition: fade
+    footer: "Meta-Learning Survey - History"
+---
+
+## 2.2 Historical Context
+
+**핵심 주제**
+메타러닝(Learning-to-Learn)의 개념은 최근에 등장한 것이 아니며, 긴 역사를 가지고 있습니다.
+
+> "Meta-learning and learning-to-learn first appear in the literature in 1987 [14]."
+
+---
+
+## The Beginnings (1987)
+
+**J. Schmidhuber [14]**
+*   **Self-Referential Learning:**
+    *   신경망이 자기 자신의 가중치(weights)를 입력으로 받고, 해당 가중치의 업데이트를 예측하도록 훈련.
+    *   진화 알고리즘(Evolutionary Algorithms)을 사용하여 모델 자체를 학습.
+
+---
+
+## Biologically Plausible Rules
+
+**Bengio et al. [46], [47]**
+*   생물학적으로 타당한(Biologically Plausible) 학습 규칙을 메타러닝하려는 시도.
+*   단순한 역전파(Backpropagation)를 넘어, 뇌의 학습 방식을 모방하려는 연구 흐름.
+
+---
+
+## Defining "Learning to Learn"
+
+**S. Thrun et al. [7]**
+*   "Learning to Learn" 용어를 명확히 정의.
+*   초기의 이론적 정당성(Theoretical Justifications)과 실질적인 구현(Practical Implementations) 제시.
+*   메타러닝을 체계적인 연구 분야로 정립하는 데 기여.
+
+---
+
+## Gradient Descent & Optimization
+
+**Optimization-based Meta-Learning의 시초**
+*   **1991 [50], 2001 [51], [52]:**
+    *   Gradient Descent(경사 하강법)와 Backpropagation을 사용하여 메타러닝 시스템을 훈련시키는 제안이 등장.
+    *   현대의 MAML 등 Optimization-based 방법론의 기초가 됨.
+
+---
+
+## Meta-Learning in RL
+
+**Reinforcement Learning (1995)**
+*   **1995 [53]:** 강화 학습(Reinforcement Learning) 문맥에서 메타러닝이 사용되기 시작.
+*   이후 다양한 확장 연구([54], [55])로 이어짐.
+
+---
+
+## Summary
+
+*   **1987:** 개념의 등장 (Schmidhuber).
+*   **Bio-inspired:** 생물학적 학습 규칙 탐구.
+*   **Theory:** Thrun의 정의.
+*   **Optimization:** Gradient Descent 기반 방법론의 태동.
+*   **RL:** 강화 학습으로의 확장.

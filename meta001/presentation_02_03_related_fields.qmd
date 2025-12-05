@@ -1,0 +1,79 @@
+---
+title: "Meta-Learning in Neural Networks: A Survey"
+subtitle: "Section 2.3: Related Fields"
+author: "Hospedales et al."
+format:
+  revealjs:
+    theme: simple
+    slide-number: true
+    transition: fade
+    footer: "Meta-Learning Survey - Related Fields"
+---
+
+## 2.3 Related Fields
+
+**핵심 주제**
+Meta-Learning과 혼동하기 쉬운 인접 분야들과의 차이점 및 관계를 정리합니다.
+
+---
+
+## Transfer Learning (TL)
+
+*   **정의:** Source Task의 경험을 사용하여 Target Task의 성능(속도, 정확도)을 개선.
+*   **차이점:**
+    *   **TL:** 보통 Source Task에서 일반적인 학습(Vanilla Learning) 후 파라미터 전이. Meta-Objective 없음.
+    *   **Meta-Learning:** 새로운 태스크 학습 시 이득을 극대화하도록 Outer Optimization을 통해 Prior를 명시적으로 학습.
+
+---
+
+## Domain Adaptation (DA) & Generalization (DG)
+
+*   **정의:** Source와 Target의 **Domain Shift** (분포 차이) 문제를 해결.
+*   **관계:**
+    *   기본적인 DA/DG는 '학습하는 방법'을 최적화하지 않음.
+    *   하지만 Meta-Learning 방법론을 사용하여 DA/DG를 수행할 수 있음 (예: Meta-Objective로 Robustness 학습).
+
+---
+
+## Continual Learning (CL)
+
+*   **정의:** 연속적인 태스크를 학습하며, 이전 지식을 잊지 않고(No Forgetting) 새로운 태스크를 빠르게 학습.
+*   **관계:**
+    *   대부분의 CL 방법론은 명시적인 Meta-Objective를 풀지 않음.
+    *   하지만 Meta-Learning은 CL의 성능(Forgetting 방지 등)을 최적화하는 프레임워크를 제공할 수 있음.
+
+---
+
+## Multi-Task Learning (MTL)
+
+*   **정의:** 여러 연관된 태스크를 **동시에** 학습하여 공유된 표현(Representation)을 얻음.
+*   **차이점:**
+    *   **MTL:** **고정된(Fixed)** 태스크 집합을 해결하는 것이 목표.
+    *   **Meta-Learning:** **미래의 보지 못한(Unseen)** 태스크를 해결하는 것이 목표.
+
+---
+
+## Hyperparameter Optimization (HO)
+
+*   **포함 여부:**
+    *   **Meta-Learning (O):** 신경망과 함께 **End-to-End**로 학습되는 경우 (예: Gradient-based hyperparameter learning, NAS).
+    *   **Meta-Learning (X):** Random Search, Bayesian Optimization 등은 일반적으로 제외.
+
+---
+
+## Hierarchical Bayesian Models (HBM)
+
+*   **정의:** 파라미터 $\theta$에 대한 Prior $p(\theta|\omega)$를 가정하고, $\omega$에 대한 Prior $p(\omega)$를 두는 계층적 모델.
+*   **관계:**
+    *   Meta-Learning을 이해하는 **모델링 프레임워크(Modeling Framework)** 제공.
+    *   알고리즘적 접근이 아닌 확률적 관점.
+    *   MAML 등의 방법론은 HBM 관점에서 해석 가능.
+
+---
+
+## AutoML
+
+*   **정의:** 머신러닝 프로세스(데이터 정제, 알고리즘 선택 등)의 자동화.
+*   **관계:**
+    *   **AutoML:** 더 포괄적인 개념 (Heuristics 포함).
+    *   **Meta-Learning:** End-to-End 최적화를 사용하는 AutoML의 **특수한 형태(Specialization)**로 볼 수 있음.
