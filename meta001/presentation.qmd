@@ -1,0 +1,81 @@
+---
+title: "Meta-Learning in Neural Networks: A Survey"
+subtitle: "Section 1: Introduction"
+author: "Hospedales et al."
+format:
+  revealjs:
+    theme: simple
+    slide-number: true
+    transition: fade
+    footer: "Meta-Learning Survey - Introduction"
+---
+
+## 1. Introduction
+
+**핵심 주제**
+Meta-Learning의 정의, 필요성, 그리고 이 서베이 논문의 범위와 기여.
+
+---
+
+## The Problem: Conventional ML
+
+> "Contemporary machine learning models are typically trained from scratch for a specific task..."
+
+*   **기존 방식:** 고정된 학습 알고리즘(Fixed Learning Algorithm)을 사용.
+*   **한계점:**
+    *   매번 처음부터(From Scratch) 학습.
+    *   데이터(Data)와 계산 자원(Compute)이 많이 필요함.
+    *   데이터가 적거나(Few-shot), 자원이 제한된 환경에서 불리함.
+
+---
+
+## The Solution: Meta-Learning
+
+*   **핵심 아이디어:**
+    *   여러 에피소드(Episodes)와 태스크(Tasks)를 거치며 경험을 축적.
+    *   **"Learning-to-Learn"**: 미래의 학습 성능을 개선함.
+*   **장점 (Benefits):**
+    *   **Data Efficiency:** 적은 데이터로도 학습 가능.
+    *   **Compute Efficiency:** 더 빠른 학습.
+    *   **Biological Alignment:** 인간 및 동물의 학습 방식과 유사.
+
+---
+
+## The Evolution of Machine Learning
+
+기계 학습의 발전 단계를 다음과 같이 정의합니다.
+
+1.  **Hand-engineered Features**
+    *   사람이 직접 특징을 설계함.
+2.  **Deep Learning**
+    *   Joint **Feature** & **Model** Learning.
+    *   특징 추출과 모델링을 함께 학습.
+3.  **Meta-Learning**
+    *   Integrating Joint **Feature**, **Model**, & **Algorithm** Learning.
+    *   학습하는 방법(Algorithm) 자체를 학습.
+
+---
+
+## Scope of This Survey
+
+이 논문은 메타러닝 중에서도 다음 영역에 집중합니다.
+
+*   **Contemporary Neural-Network Meta-Learning**
+    *   최신 딥러닝 기반 방법론.
+*   **End-to-End Learning**
+    *   명시적으로 정의된 목적 함수(Objective Function)를 통해 End-to-End로 최적화되는 방식.
+    *   *Note: 단순한 하이퍼파라미터 튜닝이나 AutoML과는 구별됨.*
+
+---
+
+## Contributions
+
+이 서베이 논문이 제시하는 주요 기여:
+
+1.  **New Taxonomy (새로운 분류 체계)**
+    *   Meta-Representation
+    *   Meta-Objective
+    *   Meta-Optimizer
+2.  **Comprehensive Survey**
+    *   Few-shot Learning, Reinforcement Learning (RL), Neural Architecture Search (NAS) 등 다양한 응용 분야 포괄.
+    *   Transfer Learning 및 Multi-task Learning과의 관계 정립.
