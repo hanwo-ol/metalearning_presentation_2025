@@ -8,7 +8,8 @@
 
 ## 대략적인 목차
 
-(1) 메타러닝이 무엇인가? 다른 분야와 어떻게 다른가?
-(2) meta-representation, meta-objective, meta-optimizer
-(3) 응용 분야
-(4) future works
+(1) 메타러닝이 무엇인가? 다른 분야와 어떻게 다른가?    
+(2) meta-representation, meta-objective, meta-optimizer?    
+(3) 응용 분야   
+(4) future works    
+
