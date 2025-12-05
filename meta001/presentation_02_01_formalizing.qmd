@@ -1,0 +1,83 @@
+---
+title: "Meta-Learning in Neural Networks: A Survey"
+subtitle: "Section 2.1: Formalizing Meta-Learning"
+author: "Hospedales et al."
+format:
+  revealjs:
+    theme: simple
+    slide-number: true
+    transition: fade
+    footer: "Meta-Learning Survey - Formalizing"
+---
+
+## 2.1 Formalizing Meta-Learning
+
+**핵심 주제**
+Meta-Learning을 수식으로 정의하고, 이를 바라보는 세 가지 관점(Views)을 제시합니다.
+
+1.  Task-Distribution View
+2.  Bilevel Optimization View
+3.  Feed-Forward Model View
+
+---
+
+## 1. Conventional Machine Learning
+
+기존의 지도 학습(Supervised Learning)은 다음과 같이 표현됩니다.
+
+$$ \theta^* = \arg\min_\theta \mathcal{L}(\mathcal{D}; \theta, \omega) $$
+
+*   $\mathcal{D}$: 데이터셋 $\{(x, y)\}$.
+*   $\theta$: 모델 파라미터.
+*   $\mathcal{L}$: 손실 함수 (Loss function).
+*   **$\omega$**: 학습 방법(Optimizer, Architecture 등). **(Pre-specified & Fixed)**
+
+> **Meta-Learning의 목표:** $\omega$를 고정하지 않고 학습하여 성능을 개선하는 것.
+
+---
+
+## 2. Task-Distribution View
+
+메타러닝은 **태스크의 분포 $p(\mathcal{T})$**에서 학습합니다.
+
+$$ \min_\omega \mathbb{E}_{\mathcal{T} \sim p(\mathcal{T})} [\mathcal{L}(\mathcal{D}; \omega)] $$
+
+*   **Source Tasks (Meta-Training):**
+    *   $\mathcal{D}_{source}$에서 $\omega$를 학습.
+    *   각 태스크는 **Support Set**(Train)과 **Query Set**(Val)으로 나뉨.
+*   **Target Tasks (Meta-Testing):**
+    *   새로운 태스크 $\mathcal{D}_{target}$에 대해 학습된 $\omega$를 사용하여 빠르게 적응.
+
+---
+
+## 3. Bilevel Optimization View
+
+메타러닝을 **이중 최적화(Bilevel Optimization)** 문제로 정의합니다.
+
+$$ \omega^* = \arg\min_\omega \sum_{i=1}^M \mathcal{L}_{meta}(\theta^{*(i)}(\omega), \omega, \mathcal{D}_{source}^{val(i)}) $$
+
+$$ \text{s.t. } \theta^{*(i)}(\omega) = \arg\min_\theta \mathcal{L}_{task}(\theta, \omega, \mathcal{D}_{source}^{train(i)}) $$
+
+*   **Inner Level (Eq 6):** 특정 태스크의 손실($\mathcal{L}_{task}$)을 최소화하여 $\theta$ 계산.
+*   **Outer Level (Eq 5):** Inner의 결과 $\theta^*$가 메타 목적 함수($\mathcal{L}_{meta}$)를 최소화하도록 $\omega$ 업데이트.
+
+---
+
+## 4. Feed-Forward Model View
+
+반복적인 최적화(Iterative Optimization) 대신, **모델이 직접 파라미터를 예측**하는 방식입니다. (a.k.a. Amortized Meta-Learning)
+
+$$ g_\omega(\mathcal{D}^{train}) \rightarrow \text{Weights or Predictions} $$
+
+*   **특징:**
+    *   데이터셋 $\mathcal{D}^{train}$을 입력으로 받아 해(Solution)를 출력하는 함수 $g_\omega$를 학습.
+    *   **장점:** Inner Loop 최적화 과정을 Feed-forward 연산으로 대체하여 매우 빠름.
+    *   **예:** Neural Processes, HyperNetworks.
+
+---
+
+## Summary
+
+*   **Task Distribution:** 여러 태스크를 통해 일반화된 지식($\omega$)을 학습.
+*   **Bilevel Optimization:** Inner Loop(적응)와 Outer Loop(메타 학습)의 계층 구조.
+*   **Feed-Forward:** 최적화 과정을 함수 근사로 대체하여 효율성 증대.
