@@ -61,13 +61,28 @@ Meta-Learning과 혼동하기 쉬운 인접 분야들과의 차이점 및 관계
 
 ---
 
-## Hierarchical Bayesian Models (HBM)
+## Hierarchical Bayesian Models (HBM) (1/2)
 
-*   **정의:** 파라미터 $\theta$에 대한 Prior $p(\theta|\omega)$를 가정하고, $\omega$에 대한 Prior $p(\omega)$를 두는 계층적 모델.
-*   **관계:**
-    *   Meta-Learning을 이해하는 **모델링 프레임워크(Modeling Framework)** 제공.
-    *   알고리즘적 접근이 아닌 확률적 관점.
-    *   MAML 등의 방법론은 HBM 관점에서 해석 가능.
+HBM은 메타러닝을 이해하는 **확률적 모델링 프레임워크**를 제공합니다.
+
+*   **구조:**
+    *   그룹(Task) $i$의 데이터 $\mathcal{D}_i$는 파라미터 $\theta_i$에 의존.
+    *   $\theta_i$는 메타 파라미터(Prior) $\omega$에 의존 ($p(\theta_i|\omega)$).
+    *   $\omega$는 자체적인 Prior $p(\omega)$를 가짐.
+
+$$ \text{Full Model} = \left[ \prod_{i=1}^M p(\mathcal{D}_i|\theta_i)p(\theta_i|\omega) \right] p(\omega) $$
+
+---
+
+## Hierarchical Bayesian Models (HBM) (2/2)
+
+메타 학습은 $\omega$에 대한 사후 확률(Posterior)을 구하는 과정으로 볼 수 있습니다. 이는 $\theta_i$에 대한 **Bayesian Marginalisation**을 포함합니다.
+
+$$ P(\omega|\mathcal{D}) \propto p(\omega) \prod_{i=1}^M \int d\theta_i p(\mathcal{D}_i|\theta_i)p(\theta_i|\omega) $$
+
+*   **의미:**
+    *   각 태스크의 파라미터 $\theta_i$를 적분하여 소거(Marginalize)함으로써, 모든 태스크를 아우르는 $\omega$를 학습.
+    *   MAML 등도 HBM의 관점에서 해석 가능 [76].
 
 ---
 
